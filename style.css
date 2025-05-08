@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap  ');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "cal sans", sans-serif;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* so everything added goes below each other! */
+    justify-content: center;
+    align-items: center;
+    background-color: #171414;
+}
+.wrapper {
+    display:flex;
+    align-items: center;
+}
+
+.wrapper .static-txt{
+    color: white;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.wrapper .dynamic-txts{
+    margin-left: 15px;
+    line-height: 90px;
+    height: 90px;
+    overflow: hidden
+}
+
+.dynamic-txts li {
+    list-style: none;
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    top: 0;
+    position: relative;
+    animation: slide 12s steps(4)
+    infinite;
+}
+
+@keyframes slide {
+    100%{
+        top: -360px;
+    }
+}
+
+.dynamic-txts li {
+    position: relative;
+}
+
+.dynamic-txts li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #171414;
+    border-left: 2px solid white;
+    animation: typing 3s steps(21)
+    infinite;
+}
+
+@keyframes blinking {
+    75% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing{
+    40%,
+    60%{
+        left: calc(100% + 30px);
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.btn {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0.5em 1em;
+    color: rgba(255, 255, 255, 0.82);
+    background-color: #171414;
+    border: 10px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    cursor : pointer;
+
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition: text-shadow 0.3s ease;
+}
+
+
+.btn:hover {
+    transform: translateY(-10px);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.84);
+}
